@@ -21,8 +21,8 @@ class RobotController extends \Admin\Controller
         $form = new Form('admin.robottxt.create');
         $params = [
             '_meta' => [
-                'title' => 'Site Settings',
-                'menus' => ['site-setting']
+                'title' => 'Settings',
+                'menus' => ['admin-setting']
             ],
             'form'  => $form,
             'success' => false
@@ -42,7 +42,7 @@ class RobotController extends \Admin\Controller
             $object->value = file_get_contents($robot_file);
 
         if(!($valid = $form->validate($object)) || !$form->csrfTest('noob'))
-            return $this->resp('robottxt/edit', $params);
+            return $this->resp('robot-txt/edit', $params);
 
         $value = $valid->value;
         if(!$value){

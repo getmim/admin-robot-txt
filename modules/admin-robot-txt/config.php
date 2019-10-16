@@ -2,7 +2,7 @@
 
 return [
     '__name' => 'admin-robot-txt',
-    '__version' => '0.0.1',
+    '__version' => '1.0.0',
     '__git' => 'git@github.com:getmim/admin-robot-txt.git',
     '__license' => 'MIT',
     '__author' => [
@@ -12,7 +12,7 @@ return [
     ],
     '__files' => [
         'modules/admin-robot-txt' => ['install','update','remove'],
-        'theme/admin/robottxt/' => ['install','update','remove']
+        'theme/admin/robot-txt/' => ['install','update','remove']
     ],
     '__dependencies' => [
         'required' => [
@@ -20,7 +20,7 @@ return [
                 'admin' => NULL
             ],
             [
-                'admin-site-setting' => NULL
+                'admin-setting' => NULL
             ]
         ],
         'optional' => []
@@ -34,16 +34,19 @@ return [
         ],
         'files' => []
     ],
-    'adminSiteSetting' => [
-        'editable' => [
-            'robot-txt' => [
+    'adminSetting' => [
+        'menus' => [
+            'admin-robot-txt' => [
                 'label' => 'robots.txt',
                 'icon'  => '<i class="fas fa-robot"></i>',
                 'info'  => 'Modify file /robots.txt of the site',
-                'perms' => 'update_robot_txt',
-                'link'  => [
-                    'label' => 'Update file',
-                    'route' => ['adminRobotTxt', [], []]
+                'perm'  => 'update_robot_txt',
+                'index' => 1,
+                'options' => [
+                    'admin-robot-txt-modify' => [
+                        'label' => 'Modify file',
+                        'route' => ['adminRobotTxt', [], []]
+                    ]
                 ]
             ]
         ]
