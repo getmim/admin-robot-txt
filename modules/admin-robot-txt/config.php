@@ -2,7 +2,7 @@
 
 return [
     '__name' => 'admin-robot-txt',
-    '__version' => '1.0.0',
+    '__version' => '1.1.0',
     '__git' => 'git@github.com:getmim/admin-robot-txt.git',
     '__license' => 'MIT',
     '__author' => [

@@ -44,16 +44,31 @@ class RobotController extends \Admin\Controller
         if(!($valid = $form->validate($object)) || !$form->csrfTest('noob'))
             return $this->resp('robot-txt/edit', $params);
 
+        $diff_type = 2;
+
         $value = $valid->value;
         if(!$value){
             if($file_exists)
                 unlink($robot_file);
+            $diff_type = 3;
         }else{
+            if(!$file_exists)
+                $diff_type = 1;
             Fs::write($robot_file, $value);
         }
 
         $params['success'] = true;
 
-        $this->resp('robottxt/edit', $params);
+        $this->addLog([
+            'user'   => $this->user->id,
+            'object' => 0,
+            'parent' => 0,
+            'method' => $diff_type,
+            'type'   => 'robots.txt',
+            'original' => $diff_type == 1 ? NULL : $object,
+            'changes'  => $diff_type == 3 ? NULL : $valid
+        ]);
+
+        $this->resp('robot-txt/edit', $params);
     }
 }
