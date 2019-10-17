@@ -2,7 +2,7 @@
 
 return [
     '__name' => 'admin-robot-txt',
-    '__version' => '1.1.0',
+    '__version' => '1.1.1',
     '__git' => 'git@github.com:getmim/admin-robot-txt.git',
     '__license' => 'MIT',
     '__author' => [
@@ -41,7 +41,7 @@ return [
                 'icon'  => '<i class="fas fa-robot"></i>',
                 'info'  => 'Modify file /robots.txt of the site',
                 'perm'  => 'update_robot_txt',
-                'index' => 1,
+                'index' => 1000,
                 'options' => [
                     'admin-robot-txt-modify' => [
                         'label' => 'Modify file',
