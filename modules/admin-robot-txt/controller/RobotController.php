@@ -21,7 +21,7 @@ class RobotController extends \Admin\Controller
         $form = new Form('admin.robottxt.create');
         $params = [
             '_meta' => [
-                'title' => 'Settings',
+                'title' => 'System Settings',
                 'menus' => ['admin-setting']
             ],
             'form'  => $form,
